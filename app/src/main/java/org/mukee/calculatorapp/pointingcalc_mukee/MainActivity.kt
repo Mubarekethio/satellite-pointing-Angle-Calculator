@@ -5,6 +5,7 @@ import android.os.Bundle
 
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import org.jetbrains.annotations.NotNull
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val input2 = findViewById<EditText>(R.id.input2)
         val input3 = findViewById<EditText>(R.id.input3)
         val output1 = findViewById<TextView>(R.id.output1)
+        val sat_list = findViewById<Spinner>(R.id.sat_spinner)
 
 
         val btnclear = findViewById<Button>(R.id.btnclear)
