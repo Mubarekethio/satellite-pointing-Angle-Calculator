@@ -1,0 +1,106 @@
+Satellite ,Orbital position
+ABS 3A ,3.0Â°West
+Al Yah 1 ,52.5Â°East
+Alcomsat 1 ,24.5Â°West
+Amos 3 ,4.0Â°West
+Amos 4 ,65.0Â°East
+Amos 7 ,3.9Â°West
+Apstar 7 ,76.5Â°East
+Arabsat 5A / 6A ,30.5Â°East
+Arabsat 5C ,20.0Â°East
+Asiasat 5 ,100.5Â°East
+Asiasat 7 ,105.5Â°East
+Astra 1KR/L/M/N ,19.2Â°East
+Astra 2E (Eutelsat 28E) ,28.5Â°East
+Astra 2F / 2G ,28.2Â°East
+Astra 3B ,23.5Â°East
+Astra 4A ,4.8Â°East
+Astra 5B ,31.5Â°East
+AzerSpace 1/Africasat 1a ,46.0Â°East
+AzerSpace 2/Intelsat 38 ,45.0Â°East
+Badr 4/5/6 ,26.0Â°East
+Badr 4/5/6/7 ,26.0Â°East
+Bangabandhu 1 ,119.1Â°East
+Belintersat 1 ,51.5Â°East
+BSAT 3A / 3C/JCSAT 110R / 4A / 15 ,110.0Â°East
+BSBSAT 3A / 3C/JCSAT 110R / 4A / 15 ,110.0Â°East
+BulgariaSat 1 ,1.9Â°East
+ChinaSat 10 ,110.5Â°East
+ChinaSat 11 ,98.0Â°East
+ChinaSat 12 ,87.5Â°East
+ChinaSat 2C ,103.5Â°East
+Chinasat 6B ,115.5Â°East
+Chinasat 9 ,92.2Â°East
+Eurobird 9B / Ka-Sat ,9.0Â°East
+Eurobird 9B / Ka-Sat 9A ,9.0Â°East
+Eutelsat 10A ,10.0Â°East
+Eutelsat 16A ,16.0Â°East
+Eutelsat 21B ,21.5Â°East
+Eutelsat 25B/Es'hail 1 ,25.8Â°East
+Eutelsat 33E ,33.0Â°East
+Eutelsat 36B ,35.9Â°East
+Eutelsat 3B ,3.1Â°East
+Eutelsat 5 West B ,5.0Â°West
+Eutelsat 7 West A ,7.3Â°West
+Eutelsat 70B ,70.5Â°East
+Eutelsat 7B / 7C ,7.0Â°East
+Eutelsat 8 West B ,8.0Â°West
+Eutelsat Hot Bird 13B/C/E ,13.0Â°East
+Express AM 33 ,96.5Â°East
+Express AM 44 ,11.0Â°West
+Express AM 6 ,53.0Â°East
+Express AM7 ,40.0Â°East
+Express AMU1 (Eutelsat 36C) ,36.1Â°East
+Express AT1 ,56.0Â°East
+G-Sat 10 / 30 ,83.0Â°East
+G-Sat 15 / 17 ,93.5Â°East
+G-Sat 18 / 11 ,74.0Â°East
+G-Sat 31 / 19 ,48.0Â°East
+G-Sat 8 / 16 ,55.0Â°East
+G-Sat 9 ,97.3Â°East
+Hellas Sat 3 / 4 ,39.0Â°East
+Hispasat 30W-5 / 30W-6 ,30.0Â°West
+Horizons 2 ,84.8Â°East
+Hylas 4 ,33.5Â°West
+Intelsat 10-02 ,1.0Â°West
+Intelsat 15 ,85.2Â°East
+Intelsat 17 ,66.0Â°East
+Intelsat 20 / 36 ,68.5Â°East
+Intelsat 25 ,31.5Â°West
+Intelsat 28 ,32.9Â°East
+Intelsat 33e ,60.0Â°East
+Intelsat 35e ,34.5Â°West
+Intelsat 37e ,18.0Â°West
+Intelsat 39 ,62.0Â°East
+Intelsat 901 ,27.5Â°West
+KazSat 2 ,86.5Â°East
+KazSat 3 ,58.5Â°East
+Koreasat 5 / 5A ,113.0Â°East
+Koreasat 6 / 7 ,116.0Â°East
+Measat 3 / 3b ,91.5Â°East
+Measat 3a ,91.4Â°East
+NigComSat 1R ,42.5Â°East
+Nilesat 201 ,7.0Â°West
+NSS 12 ,57.0Â°East
+Paksat 1R ,38.0Â°East
+Rascom QAF 1R ,2.8Â°East
+SES 12 ,95.0Â°East
+SES 4 ,22.0Â°West
+SES 5 ,5.0Â°East
+SES 6 ,40.5Â°West
+SES 7 / 9 ,108.2Â°East
+ST 2 ,88.0Â°East
+TÃ¼rksat 3A / 4A ,42.0Â°East
+Telkom 3S ,118.0Â°East
+Telkom 4 ,108.0Â°East
+Telstar 11N ,37.6Â°West
+Telstar 12 Vantage ,15.0Â°West
+Thaicom 4 ,119.5Â°East
+Thaicom 6/8 ,78.5Â°East
+Thor 5/6 ,0.8Â°West
+Thor 7 ,0.6Â°West
+TurkmenÃ„lem/MonacoSat ,52.0Â°East
+WGS 3 ,12.5Â°West
+Yamal 401 ,90.0Â°East
+Yamal 402 ,54.9Â°East
+Yamal 601 ,49.0Â°East
