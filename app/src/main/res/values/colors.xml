@@ -10,4 +10,11 @@
     <color name="colorGray">#7C7C80</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorPurple">#738DEF</color>
+    <color name="navy_500">#64869B</color>
+    <color name="colorPrimary">#37596D</color>
+    <color name="colorPrimaryVariant">#073042</color>
+    <color name="colorAccent">#3DDC84</color>
+    <color name="colorPrimaryDark">#00A956</color>
+
+
 </resources>

@@ -2,6 +2,11 @@
     <string name="app_name">pointingCalc-Mukee</string>
     <string name="select_satellite">Select Satellite</string>
     <string name="selected_item">Selected item:</string>
+    <string name="site_longtude_e">Site Longtude! (E)</string>
+    <string name="site_latitude_n">Site Latitude! (N)</string>
+    <string name="sat_longtude_e_nuse_for_w">Sat Longtude (E) use - for (W)</string>
+    <string name="calculate">Calculate</string>
+    <string name="c">C</string>
     <string-array name="programming_languages">
         <item>G-Sat 9 (97.3°East)</item>
         <item>Hellas Sat ¾ (39.0°East)</item>
