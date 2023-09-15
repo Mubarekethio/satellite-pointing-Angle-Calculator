@@ -17,3 +17,6 @@ Inverted elevation is an elevation angle when the dish is inverted in upward dir
 This app is developed by considering a Circular polarized antennas it may be left-hand (LHCP) or right-hand (RHCP). so the polarization angle is considered not important.
 
 Finally, if your satellite are in the west direction you can use the minus sign ex. if the satellite is at 18°W you can use '-18°' or 360-18=342.
+
+
+Tip: Typical satellite antenna offsets are 22.3º and 17.3° (i.e., Calculated Elevation – Offset = Measured Elevation angle). in this project the 22.3 is used as an offset of the antenna if your antenna have different offset angle from 22.3 you must add the difference of the offset antenna on the elevation 
