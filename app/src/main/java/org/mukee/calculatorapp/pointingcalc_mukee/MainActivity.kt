@@ -2,24 +2,26 @@ package org.mukee.calculatorapp.pointingcalc_mukee
 
 
 import android.Manifest
+
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
+import android.text.TextUtils
+import android.view.View
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import org.mukee.calculatorapp.pointingcalc_mukee.pointingClass
 
 
 class MainActivity : AppCompatActivity(), LocationListener {
@@ -29,9 +31,13 @@ class MainActivity : AppCompatActivity(), LocationListener {
     private lateinit var tvGpsLocation1: TextView
     private val locationPermissionCode = 2
     private var backPressedTime: Long = 0
-    private lateinit var input1: EditText
-    private lateinit var input2: EditText
-    private lateinit var output1: EditText
+    lateinit var showProBtn: Button
+    lateinit var proBar: ProgressBar
+    var isProgressVisible = false
+
+    //private lateinit var input1: EditText
+    //private lateinit var input2: EditText
+    //private lateinit var output1: EditText
 
 
 
@@ -43,9 +49,13 @@ class MainActivity : AppCompatActivity(), LocationListener {
         setContentView(R.layout.activity_main)
 
 
+
+
+        //proBar= findViewById(R.id.probar)
+
         val input11 = findViewById<EditText>(R.id.input1)
         val input22 = findViewById<EditText>(R.id.input2)
-        val output11= findViewById<EditText>(R.id.output1)
+        //val output11= findViewById<EditText>(R.id.output1)
         val input3 = findViewById<EditText>(R.id.input3)
 
         // get reference to the string array that we just created
@@ -100,7 +110,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
             input11.text.clear()
             input22.text.clear()
             input3.text.clear()
-            output11.text.clear()
+            //output11.text.clear()
         }
     }
 
@@ -121,17 +131,33 @@ class MainActivity : AppCompatActivity(), LocationListener {
             val El= pointingClass(input1, input2, input3).El
             val El1 = pointingClass(input1, input2, input3).El1
 
+            val azz= findViewById<TextView>(R.id.azI)
+            val NEl2= findViewById<TextView>(R.id.NEl2)
+            val InEl2= findViewById<TextView>(R.id.IEl2)
+
+            //val a: Double=String.format("%f.6f",Az).toDouble()
+
+            azz.text= Az.toString()//String.format("%f.6f",Az).toString()
+            NEl2.text= El.toString()//String.format("%f.6f",El).toString()
+            InEl2.text = El1.toString()//toDouble()//String.format("%f.6f",El1).toString()
+
+            /*
             when {
                 input1.toString().isNotEmpty() || input2.toString()
                     .isNotEmpty() || input3.toString().isNotEmpty() -> {
                     with(output1) {
                         text =
-                            "Azimuth :\t${Az}\nNormal Elevation:\t${El}\nInverted Elevation:\t${El1}"
+                            "Azimuth :\t${Az}\n" +
+                                    "Normal Elevation:\t${El}\n" +
+                                    "Inverted Elevation:\t${El1}"
+
                     }
                 }
 
-                else -> println("")
+                else -> println("abebe")
             }
+
+             */
         } catch (e: Exception) {
             Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_LONG).show()
             output1.text = ""
@@ -155,6 +181,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
         //input1.setText(tvGpsLocation.text)
         tvGpsLocation.text= location.longitude.toString()
         tvGpsLocation1.text = location.latitude.toString()
+
 
         //tvGpsLocation.text = "Latitude: " + location.latitude + " , Longitude: " + location.longitude
     }
