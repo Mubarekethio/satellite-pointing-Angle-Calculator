@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
         val input11 = findViewById<EditText>(R.id.input1)
         val input22 = findViewById<EditText>(R.id.input2)
-        //val output11= findViewById<EditText>(R.id.output1)
+        val output11= findViewById<EditText>(R.id.output1)
         val input3 = findViewById<EditText>(R.id.input3)
 
         // get reference to the string array that we just created
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
             input11.text.clear()
             input22.text.clear()
             input3.text.clear()
-            //output11.text.clear()
+            output11.text.clear()
         }
     }
 
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
             NEl2.text= El.toString()//String.format("%f.6f",El).toString()
             InEl2.text = El1.toString()//toDouble()//String.format("%f.6f",El1).toString()
 
-            /*
+            
             when {
                 input1.toString().isNotEmpty() || input2.toString()
                     .isNotEmpty() || input3.toString().isNotEmpty() -> {
@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
                 else -> println("abebe")
             }
 
-             */
+
         } catch (e: Exception) {
             Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_LONG).show()
             output1.text = ""
