@@ -137,6 +137,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
             //val a: Double=String.format("%f.6f",Az).toDouble()
 
+
             azz.text= Az.toString()//String.format("%f.6f",Az).toString()
             NEl2.text= El.toString()//String.format("%f.6f",El).toString()
             InEl2.text = El1.toString()//toDouble()//String.format("%f.6f",El1).toString()

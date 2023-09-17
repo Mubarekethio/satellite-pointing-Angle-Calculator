@@ -187,101 +187,91 @@
 
     <RelativeLayout
         android:id="@+id/relative2"
-        android:layout_width="136dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="135dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relative1">
 
-        <TextView
-            android:id="@+id/tex3"
-            android:layout_width="112dp"
-            android:layout_height="34dp"
-            android:layout_alignParentTop="true"
-            android:text="Azimuth" />
 
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="112dp"
-            android:layout_height="57dp"
+            android:layout_width="119dp"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="48dp"
             android:layout_marginStart="0dp"
-
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp"
-            android:src="@drawable/azimuth2_vector"
+            android:src="@drawable/azimuth33"
             tools:ignore="MissingConstraints" />
 
-        <EditText
-            android:id="@+id/azI"
-            android:layout_width="110dp"
-            android:layout_height="33dp"
-            android:layout_below="@+id/image_view"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="0dp" />
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/azI"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relative2" />
 
     <RelativeLayout
         android:id="@+id/relative3"
-        android:layout_width="128dp"
-        android:layout_height="152dp"
-        android:layout_marginStart="140dp"
+        android:layout_width="131dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="141dp"
         android:layout_marginTop="24dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/relative4"
+        app:layout_constraintStart_toStartOf="@+id/relative2"
         app:layout_constraintTop_toBottomOf="@+id/relative1">
 
         <ImageView
             android:id="@+id/image_view2"
-            android:layout_width="112dp"
-            android:layout_height="57dp"
+            android:layout_width="113dp"
+            android:layout_height="101dp"
             android:layout_alignParentStart="true"
 
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="2dp"
-            android:src="@drawable/normalelevation2"
-            tools:ignore="MissingConstraints" />
-
-        <EditText
-            android:id="@+id/NEl2"
-            android:layout_width="110dp"
-            android:layout_height="38dp"
-            android:layout_below="@+id/image_view2"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
             android:layout_marginStart="2dp"
             android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="2dp" />
+            android:layout_marginEnd="0dp"
+            android:src="@drawable/normalele4"
+            tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/tex2"
-            android:layout_width="112dp"
-            android:layout_height="34dp"
-            android:layout_alignParentTop="true"
-            android:text="Normal El" />
+
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/NEl2"
+        android:layout_width="126dp"
+        android:layout_height="49dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toEndOf="@+id/azI"
+        app:layout_constraintTop_toBottomOf="@+id/relative3" />
 
     <RelativeLayout
         android:id="@+id/relative4"
-        android:layout_width="131dp"
-        android:layout_height="171dp"
-        android:layout_marginStart="276dp"
+        android:layout_width="124dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="272dp"
         android:layout_marginTop="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
@@ -290,49 +280,45 @@
 
         <ImageView
             android:id="@+id/image_view3"
-            android:layout_width="115dp"
-            android:layout_height="60dp"
-            android:layout_below="@+id/tex1"
+            android:layout_width="108dp"
+            android:layout_height="99dp"
+
 
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="0dp"
-            android:src="@drawable/invertelevation2"
+            android:src="@drawable/inelev44"
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/tex1"
-            android:layout_width="102dp"
-            android:layout_height="32dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="4dp"
-            android:text="Inverted El" />
 
-        <EditText
-            android:id="@+id/IEl2"
-            android:layout_width="110dp"
-            android:layout_height="39dp"
-            android:layout_below="@+id/image_view3"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="2dp" />
+
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/IEl2"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/NEl2"
+        app:layout_constraintTop_toBottomOf="@+id/relative4" />
+
     <EditText
         android:id="@+id/output1"
-        android:layout_width="362dp"
-        android:layout_height="140dp"
+        android:layout_width="365dp"
+        android:layout_height="98dp"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861"/>
+        app:layout_constraintVertical_bias="0.861" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
