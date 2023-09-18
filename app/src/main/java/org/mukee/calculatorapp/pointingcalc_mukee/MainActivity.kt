@@ -4,12 +4,14 @@ package org.mukee.calculatorapp.pointingcalc_mukee
 import android.Manifest
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
-import android.text.TextUtils
+import android.os.Looper
 import android.view.View
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
@@ -24,16 +26,26 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 
+
 class MainActivity : AppCompatActivity(), LocationListener {
 
     private lateinit var locationManager: LocationManager
     private lateinit var tvGpsLocation: TextView
     private lateinit var tvGpsLocation1: TextView
+    private lateinit var input1: EditText
+    private lateinit var input2: EditText
+    private lateinit var input3: EditText
+    private lateinit var output1: EditText
     private val locationPermissionCode = 2
     private var backPressedTime: Long = 0
-    lateinit var showProBtn: Button
-    lateinit var proBar: ProgressBar
-    var isProgressVisible = false
+    private lateinit var az_button:TextView//findViewById<TextView>(R.id.azI)
+    private lateinit var NEl_button: TextView//findViewById<TextView>(R.id.NEl2)
+    private lateinit var InEl_button: TextView//findViewById<TextView>(R.id.IEl2)
+
+
+    private lateinit var button: Button
+    private lateinit var pro_bar: ProgressBar
+    private var isProgressVisible = false
 
     //private lateinit var input1: EditText
     //private lateinit var input2: EditText
@@ -44,33 +56,32 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-
-        //proBar= findViewById(R.id.probar)
-
-        val input11 = findViewById<EditText>(R.id.input1)
-        val input22 = findViewById<EditText>(R.id.input2)
-        val output11= findViewById<EditText>(R.id.output1)
-        val input3 = findViewById<EditText>(R.id.input3)
+        input1 = findViewById(R.id.input1)
+        input2 = findViewById(R.id.input2)
+        output1= findViewById(R.id.output1)
+        input3 = findViewById(R.id.input3)
+        az_button= findViewById(R.id.azI)
+        NEl_button= findViewById(R.id.NEl2)
+        InEl_button=findViewById(R.id.IEl2)
+        pro_bar= findViewById(R.id.probar12)
+        button = findViewById(R.id.getLocation)
 
         // get reference to the string array that we just created
         val languages = resources.getStringArray(R.array.programming_languages)
-        // create an array adapter and pass the required parameter
-        // in our case pass the context, drop down layout , and array.
+        // create an array adapter and pass the required parameter // in our case pass the context, drop down layout , and array.
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, languages)
         // get reference to the autocomplete text view
         val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
-        // set adapter to the autocomplete tv to the arrayAdapter
-        //println(autocompleteTV.toString())
+        // set adapter to the autocomplete tv to the arrayAdapter  //println(autocompleteTV.toString())
         autocompleteTV.setAdapter(arrayAdapter)
 
 
-        //to get selected value add item click listener
         //to get selected value add item click listener
         autocompleteTV.onItemClickListener = OnItemClickListener { parent, view, position, id ->
             val delimiter = "("
@@ -91,26 +102,41 @@ class MainActivity : AppCompatActivity(), LocationListener {
             ).show()
         }
         //Find Current Location
-        val button: Button = findViewById(R.id.getLocation)
+        //val button: Button = findViewById(R.id.getLocation)
+
+
+
+
+
+
         button.setOnClickListener {
+            //pro_bar.visibility = View.VISIBLE
+            //input1.text.clear()
+            //input2.text.clear()
+            isProgressVisible=true
             getLocation()
+            if(isProgressVisible){
+                button.text="Loading"
+            }
+
         }
-
-
 
         val btncalculate = findViewById<Button>(R.id.btncalculate)
         btncalculate.setOnClickListener {
             calculatePointing()
-
         }
 
         val btnclear = findViewById<Button>(R.id.btnclear)
         btnclear.setOnClickListener() {
             autocompleteTV.text.clear()
-            input11.text.clear()
-            input22.text.clear()
+            input1.text.clear()
+            input2.text.clear()
             input3.text.clear()
-            output11.text.clear()
+            output1.text.clear()
+            az_button.text=""
+            NEl_button.text=""
+            InEl_button.text=""
+
         }
     }
 
@@ -119,51 +145,24 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
         val output1 = findViewById<TextView>(R.id.output1)
         try {
-            val input1 = (findViewById<EditText>(R.id.input1)).text.toString().toDouble()
-            val input2 = (findViewById<EditText>(R.id.input2)).text.toString().toDouble()
-            val input3= findViewById<EditText>(R.id.input3).text.toString().toDouble()
-            //val B5 = input1.text.toString().toDouble()
-            //val C5 = input2.text.toString().toDouble()
-            //val D5 = input3.text.toString().toDouble()
-
             //println(autocompleteTV.text.toString())
-            val Az = pointingClass(input1, input2, input3).Az
-            val El= pointingClass(input1, input2, input3).El
-            val El1 = pointingClass(input1, input2, input3).El1
+            val Az: String = PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).Az
+            val El: String= PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).El
+            val El1: String = PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).El1
 
-            val azz= findViewById<TextView>(R.id.azI)
-            val NEl2= findViewById<TextView>(R.id.NEl2)
-            val InEl2= findViewById<TextView>(R.id.IEl2)
+            az_button.text= Az
+            NEl_button.text= El.toString()
+            InEl_button.text = El1.toString()
 
-            //val a: Double=String.format("%f.6f",Az).toDouble()
-
-
-            azz.text= Az.toString()//String.format("%f.6f",Az).toString()
-            NEl2.text= El.toString()//String.format("%f.6f",El).toString()
-            InEl2.text = El1.toString()//toDouble()//String.format("%f.6f",El1).toString()
-
-            
-            when {
-                input1.toString().isNotEmpty() || input2.toString()
-                    .isNotEmpty() || input3.toString().isNotEmpty() -> {
-                    with(output1) {
-                        text =
-                            "Azimuth :\t${Az}\n" +
-                                    "Normal Elevation:\t${El}\n" +
-                                    "Inverted Elevation:\t${El1}"
-
-                    }
-                }
-
-                else -> println("abebe")
-            }
+            output1.text = "Azimuth :\t${Az}\n" +
+                            "Normal Elevation:\t${El}\n" +
+                            "Inverted Elevation:\t${El1}"
 
 
         } catch (e: Exception) {
             Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_LONG).show()
             output1.text = ""
         }
-
     }
 
 
@@ -177,11 +176,20 @@ class MainActivity : AppCompatActivity(), LocationListener {
     }
 
     override fun onLocationChanged(location: Location) {
-        tvGpsLocation = findViewById(R.id.input1)
-        tvGpsLocation1= findViewById(R.id.input2)
+        //tvGpsLocation = findViewById(R.id.input1)
+        //tvGpsLocation1= findViewById(R.id.input2)
         //input1.setText(tvGpsLocation.text)
-        tvGpsLocation.text= location.longitude.toString()
-        tvGpsLocation1.text = location.latitude.toString()
+
+        input1.setText(location.longitude.toString())
+        input2.setText(location.latitude.toString())
+        //tvGpsLocation.text= location.longitude.toString()
+        //tvGpsLocation1.text = location.latitude.toString()
+        if (input1.text.isNotEmpty()){
+            button.text="Get Location"
+            //input1.text.clear()
+            isProgressVisible= false
+        }
+
 
 
         //tvGpsLocation.text = "Latitude: " + location.latitude + " , Longitude: " + location.longitude

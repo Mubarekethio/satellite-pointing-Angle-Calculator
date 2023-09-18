@@ -1,9 +1,11 @@
 package org.mukee.calculatorapp.pointingcalc_mukee
 
-class pointingClass (val B5: Double, val C5: Double, val D5: Double) {
+
+class PointingClass(val B5: Double, val C5: Double, val D5: Double) {
+
 
     //println(D5)
-    val Az: Double = Math.toDegrees(
+    val Az1: Double = Math.toDegrees(
         Math.atan(
             0 - (Math.tan(Math.toRadians(D5) - Math.toRadians(B5)) / (Math.sin(
                 Math.toRadians(
@@ -13,7 +15,7 @@ class pointingClass (val B5: Double, val C5: Double, val D5: Double) {
         )
     ) + 180
     //longsite+latsite+longSat
-    val El: Double = Math.toDegrees(
+    val El12: Double = Math.toDegrees(
         Math.atan(
             (Math.cos(Math.toRadians(D5) - Math.toRadians(B5)) * Math.cos(
                 Math.toRadians(
@@ -28,7 +30,15 @@ class pointingClass (val B5: Double, val C5: Double, val D5: Double) {
             ))
         )
     )
-    val El1: Double = 90 - (El + 22)
+    val El11: Double = 90 - (El12 + 22)
+    val El1 = String.format("%.4f", El11)
+
+
+    val Az= String.format("%.4f", Az1)
+    val El= String.format("%.4f", El12)
+
+
+
 
 }
 

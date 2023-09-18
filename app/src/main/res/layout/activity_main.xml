@@ -95,60 +95,85 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relative1"
-        android:layout_width="410dp"
-        android:layout_height="62dp"
+        android:id="@+id/relative44"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginTop="20dp"
         android:paddingLeft="16dp"
+
         android:paddingRight="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/output1"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:layout_constraintVertical_bias="0.061"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="5dp">
 
-        <Button
-            android:id="@+id/getLocation"
-            android:layout_width="159dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="1dp"
-            android:text="Get Location"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btncalculate"
-            app:layout_constraintHorizontal_bias="0.183"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+        <RelativeLayout
+            android:id="@+id/rel1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <ProgressBar
+                android:id="@+id/probar12"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/getLocation"
+                android:visibility="gone">
+
+            </ProgressBar>
+
+            <Button
+                android:id="@+id/getLocation"
+                android:layout_width="161dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@color/purple_500"
+                android:text="Get Location!"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
         <Button
             android:id="@+id/btncalculate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_toEndOf="@+id/getLocation"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="2dp"
+            android:background="#8A2BE3"
             android:text="@string/calculate"
+            app:cardCornerRadius="20dp"
+
+            app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnclear"
             app:layout_constraintHorizontal_bias="0.894"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.393" />
 
         <Button
-            android:id="@+id/btnclear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="17dp"
-            android:layout_marginEnd="8dp"
-            android:layout_toEndOf="@+id/btncalculate"
-            android:text="@string/c"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.942"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.392" />
+                android:id="@+id/btnclear"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="9dp"
+                android:layout_marginBottom="8dp"
+                android:background="#8A2BE3"
+                android:elevation="8dp"
+                android:text="@string/c"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.942"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.392" />
+
+
+
+
 
     </RelativeLayout>
 
@@ -186,127 +211,94 @@
 
 
     <RelativeLayout
-        android:id="@+id/relative2"
-        android:layout_width="135dp"
-        android:layout_height="113dp"
-        android:layout_marginTop="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relative1">
-
+        android:id="@+id/relativeIm"
+        android:layout_width="399dp"
+        android:layout_height="204dp"
+        android:layout_marginBottom="144dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relative44"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="5dp">
 
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="119dp"
-            android:layout_height="match_parent"
+            android:layout_width="126dp"
+            android:layout_height="121dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:src="@drawable/azimuth33"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/azimuth4"
             tools:ignore="MissingConstraints" />
 
-    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/azI"
-        android:layout_width="140dp"
-        android:layout_height="48dp"
+        <TextView
+            android:id="@+id/azI"
+            android:layout_width="110dp"
+            android:layout_height="46dp"
 
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relative2" />
 
-    <RelativeLayout
-        android:id="@+id/relative3"
-        android:layout_width="131dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="24dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/relative4"
-        app:layout_constraintStart_toStartOf="@+id/relative2"
-        app:layout_constraintTop_toBottomOf="@+id/relative1">
+            android:layout_below="@+id/image_view"
+            android:layout_alignParentStart="true"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toStartOf="@+id/NEl2" />
+
 
         <ImageView
             android:id="@+id/image_view2"
-            android:layout_width="113dp"
-            android:layout_height="101dp"
-            android:layout_alignParentStart="true"
+            android:layout_width="127dp"
+            android:layout_height="128dp"
 
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/image_view"
             android:src="@drawable/normalele4"
             tools:ignore="MissingConstraints" />
 
+        <TextView
+            android:id="@+id/NEl2"
+            android:layout_width="124dp"
+            android:layout_height="43dp"
 
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/NEl2"
-        android:layout_width="126dp"
-        android:layout_height="49dp"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/azI"
-        app:layout_constraintTop_toBottomOf="@+id/relative3" />
-
-    <RelativeLayout
-        android:id="@+id/relative4"
-        android:layout_width="124dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="272dp"
-        android:layout_marginTop="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relative1">
+            android:layout_below="@+id/image_view2"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="17dp"
+            android:layout_toStartOf="@+id/IEl2"
+            app:layout_constraintStart_toEndOf="@+id/azI" />
 
         <ImageView
             android:id="@+id/image_view3"
-            android:layout_width="108dp"
-            android:layout_height="99dp"
-
-
-            android:layout_alignParentStart="true"
+            android:layout_width="121dp"
+            android:layout_height="108dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="0dp"
+            android:layout_marginStart="2dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginEnd="2dp"
+            android:layout_toEndOf="@+id/image_view2"
             android:src="@drawable/inelev44"
             tools:ignore="MissingConstraints" />
 
+        <TextView
+            android:id="@+id/IEl2"
+            android:layout_width="104dp"
+            android:layout_height="44dp"
+
+            android:layout_below="@+id/image_view3"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintStart_toEndOf="@+id/NEl2" />
 
 
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/IEl2"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="8dp"
-        app:layout_constraintStart_toEndOf="@+id/NEl2"
-        app:layout_constraintTop_toBottomOf="@+id/relative4" />
 
     <EditText
         android:id="@+id/output1"
@@ -315,10 +307,9 @@
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeIm"
+        app:layout_constraintVertical_bias="0.974" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
