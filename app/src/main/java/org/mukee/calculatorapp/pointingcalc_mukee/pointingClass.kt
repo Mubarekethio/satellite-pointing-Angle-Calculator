@@ -1,41 +1,41 @@
 package org.mukee.calculatorapp.pointingcalc_mukee
 
 
-class PointingClass(val B5: Double, val C5: Double, val D5: Double) {
+class PointingClass(val site_long: Double, val site_lat: Double, val sat_long: Double) {
 
 
-    //println(D5)
-    val Az1: Double = Math.toDegrees(
+    var Azimuth1: Double = Math.toDegrees(
         Math.atan(
-            0 - (Math.tan(Math.toRadians(D5) - Math.toRadians(B5)) / (Math.sin(
+            0 - (Math.tan(Math.toRadians(sat_long) - Math.toRadians(site_long)) / (Math.sin(
                 Math.toRadians(
-                    C5
+                    site_lat
                 )
             )))
         )
     ) + 180
     //longsite+latsite+longSat
-    val El12: Double = Math.toDegrees(
+    var normal_El1: Double = Math.toDegrees(
         Math.atan(
-            (Math.cos(Math.toRadians(D5) - Math.toRadians(B5)) * Math.cos(
+            (Math.cos(Math.toRadians(sat_long) - Math.toRadians(site_long)) * Math.cos(
                 Math.toRadians(
-                    C5
+                    site_lat
                 )
             ) - 0.15127) / (Math.sin(
                 Math.acos(
-                    Math.cos(Math.toRadians(D5) - Math.toRadians(B5)) * Math.cos(
-                        Math.toRadians(C5)
+                    Math.cos(Math.toRadians(sat_long) - Math.toRadians(site_long)) * Math.cos(
+                        Math.toRadians(site_lat)
                     )
                 )
             ))
         )
     )
-    val El11: Double = 90 - (El12 + 22)
-    val El1 = String.format("%.4f", El11)
+    var inverted_El1 : Double= 90 - (normal_El1+ 22.3)
 
 
-    val Az= String.format("%.4f", Az1)
-    val El= String.format("%.4f", El12)
+    val Azimuth= String.format("%.4f", Azimuth1)
+    val normal_El= String.format("%.4f", normal_El1)
+    val inverted_El= String.format("%.4f", inverted_El1)
+
 
 
 

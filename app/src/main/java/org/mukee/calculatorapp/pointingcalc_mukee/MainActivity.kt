@@ -24,7 +24,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-
+import androidx.lifecycle.viewmodel.CreationExtras
 
 
 class MainActivity : AppCompatActivity(), LocationListener {
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
     private lateinit var button: Button
     private lateinit var pro_bar: ProgressBar
-    private var isProgressVisible = false
+    private var isProgressVisible = true
 
     //private lateinit var input1: EditText
     //private lateinit var input2: EditText
@@ -84,17 +84,20 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
         //to get selected value add item click listener
         autocompleteTV.onItemClickListener = OnItemClickListener { parent, view, position, id ->
-            val delimiter = "("
-            val dem= "°"
-            val parts = autocompleteTV.text.toString().split(delimiter)
-            val p=parts[1].split(dem)
+            val fst= autocompleteTV.text.toString().indexOf("(")
+            val lst= autocompleteTV.text.toString().indexOf("°")
+            val angle = autocompleteTV.text.toString().subSequence(fst+1,lst)
+
             val dc= "West"
-            if (parts[1].contains(dc)){
-                //print("-"+p[0])
-                input3.setText("-${p[0]}")
-            }else {
-                input3.setText(p[0])
+            if (autocompleteTV.text.toString().contains(dc)){
+                //f_angle= -+angle
+                input3.setText("-$angle")
+                //println("-"+ang)
+            }else{
+                input3.setText(angle)
             }
+
+
             Toast.makeText(
                 applicationContext,
                 "" + autocompleteTV.text.toString(),
@@ -113,11 +116,37 @@ class MainActivity : AppCompatActivity(), LocationListener {
             //pro_bar.visibility = View.VISIBLE
             //input1.text.clear()
             //input2.text.clear()
-            isProgressVisible=true
-            getLocation()
-            if(isProgressVisible){
-                button.text="Loading"
+
+            if (input1.text == null || input2.text.isNotEmpty()) {
+                button.text="Get Loc"
+                getLocation()
+
+            }else{
+                button.text="Loading........"
+                //getLocation()
+                getLocation()
             }
+
+            //if (input1.text.isNullOrEmpty() && input2.text.isNullOrBlank()){
+                //button.text="Loading......"
+                //getLocation()
+                //getLocation()
+            //}else{
+                //input1.text.clear()
+                //input2.text.clear()
+
+                //button.text="Loading!!!!"
+                //getLocation()
+            //}
+            //input1.text.clear()
+            //isProgressVisible= false
+            //}
+
+            //isProgressVisible=true
+            //getLocation()
+            //if(isProgressVisible){
+                //button.text="Loading"
+            //}
 
         }
 
@@ -129,13 +158,15 @@ class MainActivity : AppCompatActivity(), LocationListener {
         val btnclear = findViewById<Button>(R.id.btnclear)
         btnclear.setOnClickListener() {
             autocompleteTV.text.clear()
-            input1.text.clear()
+            input1.text=null
             input2.text.clear()
             input3.text.clear()
             output1.text.clear()
             az_button.text=""
             NEl_button.text=""
             InEl_button.text=""
+            button.text="Get Location c"
+
 
         }
     }
@@ -146,9 +177,9 @@ class MainActivity : AppCompatActivity(), LocationListener {
         val output1 = findViewById<TextView>(R.id.output1)
         try {
             //println(autocompleteTV.text.toString())
-            val Az: String = PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).Az
-            val El: String= PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).El
-            val El1: String = PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).El1
+            val Az: String = PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).Azimuth
+            val El: String= PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).normal_El
+            val El1: String = PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).inverted_El
 
             az_button.text= Az
             NEl_button.text= El.toString()
@@ -182,13 +213,17 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
         input1.setText(location.longitude.toString())
         input2.setText(location.latitude.toString())
+        button.text="Get Location"
+
+
         //tvGpsLocation.text= location.longitude.toString()
         //tvGpsLocation1.text = location.latitude.toString()
-        if (input1.text.isNotEmpty()){
-            button.text="Get Location"
+
+        //if (input1.text.isNotEmpty()){
+            //button.text="Get Location"
             //input1.text.clear()
-            isProgressVisible= false
-        }
+            //isProgressVisible= false
+        //}
 
 
 
