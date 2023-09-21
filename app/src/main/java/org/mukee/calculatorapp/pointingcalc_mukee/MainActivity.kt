@@ -117,9 +117,10 @@ class MainActivity : AppCompatActivity(), LocationListener {
             //input1.text.clear()
             //input2.text.clear()
 
-            if (input1.text == null || input2.text.isNotEmpty()) {
-                button.text="Get Loc"
+            if (input1.text == null && input2.text.isNotEmpty()) {
+                button.text="Get Loc-if"
                 getLocation()
+
 
             }else{
                 button.text="Loading........"
@@ -165,7 +166,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
             az_button.text=""
             NEl_button.text=""
             InEl_button.text=""
-            button.text="Get Location c"
+            button.text="Get Loc-c"
 
 
         }
