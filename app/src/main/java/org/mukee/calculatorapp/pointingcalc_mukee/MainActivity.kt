@@ -38,6 +38,8 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
     //locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
 
+    private var tvGlat: String?=null
+    private var tvGlog: String?=null
     private lateinit var locationManager: LocationManager
     private lateinit var tvGpsLocation: TextView
     private lateinit var tvGpsLocation1: TextView
@@ -91,6 +93,7 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
 
 
 
+
         // get reference to the string array that we just created
         val languages = resources.getStringArray(R.array.programming_languages)
         // create an array adapter and pass the required parameter // in our case pass the context, drop down layout , and array.
@@ -121,35 +124,18 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
 
 
         button.setOnClickListener {
-            //pro_bar.visibility = View.VISIBLE
-            //button.text ="Loading...."
+
             //getLocation()
-            input1.text=null
-            input2.text.clear()
-            if (input1.text.isEmpty() && input2.text.isEmpty()) {
+            if (tvGlog==null || tvGlat==null) {
                 "Loading......".also { button.text = it }
                 getLocation()
-            }
-
-            /*
-            if (input1.text.isNotEmpty() && input2.text.isNotEmpty()) {
-                //tvGpsLocation.text= null
-                //tvGpsLocation1.text=null
-
-                "Loading..".also { button.text = it }
-                getLocation()
-
 
             }else{
+                input1.text.clear()
+                input2.text.clear()
+                "Loading...".also { button.text = it }
                 getLocation()
-                "Loading........".also { button.text = it }
-                //button.text="Get Loc-else"
             }
-
-             */
-
-
-
 
         }
 
@@ -162,7 +148,7 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
         btnclear.setOnClickListener{
             autocompleteTV.text.clear()
             //txView.text.clear
-            input1.text=null//clear()
+            input1.text.clear()
             input2.text.clear()
             input3.text.clear()
             az_button.text=""
@@ -186,9 +172,6 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
             NEl_button.text= El.toString()
             InEl_button.text = El1.toString()
 
-            //output1.text = "Azimuth :\t${Az}\n" +
-                            //"Normal Elevation:\t${El}\n" +
-                            //"Inverted Elevation:\t${El1}"
 
 
         } catch (e: Exception) {
@@ -213,19 +196,23 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
 
     }
     override fun onLocationChanged(location: Location) {
-        tvGpsLocation = findViewById(R.id.input1)
-        tvGpsLocation1= findViewById(R.id.input2)
-        //input1.setText(tvGpsLocation.text)
-        //var tvGpsL: String? =null
+        //tvGpsLocation = findViewById(R.id.input1)
+        //tvGpsLocation1= findViewById(R.id.input2)
+        //tvGpsLocation.text= location.longitude.toString() //setText(location.longitude.toString())
+        //tvGpsLocation1.text= location.latitude.toString()
 
-        //tvGpsL= location.longitude.toString()
-        tvGpsLocation.text= location.longitude.toString() //setText(location.longitude.toString())
-        tvGpsLocation1.text= location.latitude.toString()
+        tvGlog = location.longitude.toString()
+        tvGlat= location.latitude.toString()
 
-        //input1.setText(location.longitude.toString())
-        //input2.setText(location.latitude.toString())
-        "Get Location".also { button.text = it }
-
+        if (input1.text.isNotEmpty() && input2.text.isNotEmpty()){
+            input1.setText(location.longitude.toString())
+            input2.setText(location.latitude.toString())
+            "Get Location1".also { button.text = it }
+        }else{
+            input1.setText(tvGlog)
+            input2.setText(tvGlat)
+            "Get Location2".also { button.text = it }
+        }
         //tvGpsLocation.text = "Latitude: " + location.latitude + " , Longitude: " + location.longitude
     }
 
