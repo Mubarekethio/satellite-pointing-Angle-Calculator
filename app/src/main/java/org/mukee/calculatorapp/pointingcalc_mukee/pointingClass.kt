@@ -1,7 +1,14 @@
 package org.mukee.calculatorapp.pointingcalc_mukee
 
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+
 
 class PointingClass(val site_long: Double, val site_lat: Double, val sat_long: Double) {
+
+
+
+
 
 
     var Azimuth1: Double = Math.toDegrees(

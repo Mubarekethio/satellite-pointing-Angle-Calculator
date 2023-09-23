@@ -2,8 +2,9 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/txView"
     android:layout_width="match_parent"
-    android:textColor="@color/black"
+    android:textColor="@color/white"
     android:textStyle="bold"
     android:padding="14dp"
     android:layout_height="wrap_content"
+    android:background="@color/black"
     android:text="listofSat" />

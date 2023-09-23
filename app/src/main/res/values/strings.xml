@@ -7,6 +7,7 @@
     <string name="sat_longtude_e_nuse_for_w">Sat Longtude (E) use - for (W)</string>
     <string name="calculate">Calculate</string>
     <string name="c">C</string>
+    <string name="angle">-%1$s</string>
     <string-array name="programming_languages">
         <item>G-Sat 9 (97.3°East)</item>
         <item>Hellas Sat ¾ (39.0°East)</item>

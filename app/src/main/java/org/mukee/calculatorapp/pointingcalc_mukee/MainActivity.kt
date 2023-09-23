@@ -12,6 +12,9 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 import android.os.Looper
+import android.os.Parcel
+import android.os.Parcelable
+import android.text.method.TextKeyListener.clear
 import android.view.View
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
@@ -27,7 +30,13 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.CreationExtras
 
 
-class MainActivity : AppCompatActivity(), LocationListener {
+class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
+
+    //LocationListener
+    //private var currentLocation: Location? = null
+    //private lateinit var locationManager: LocationManager
+    //locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
 
     private lateinit var locationManager: LocationManager
     private lateinit var tvGpsLocation: TextView
@@ -44,8 +53,12 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
 
     private lateinit var button: Button
-    private lateinit var pro_bar: ProgressBar
-    private var isProgressVisible = true
+    //private lateinit var pro_bar: ProgressBar
+
+    constructor(parcel: Parcel) : this() {
+        backPressedTime = parcel.readLong()
+    }
+    //private var isProgressVisible = true
 
     //private lateinit var input1: EditText
     //private lateinit var input2: EditText
@@ -62,15 +75,21 @@ class MainActivity : AppCompatActivity(), LocationListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         input1 = findViewById(R.id.input1)
         input2 = findViewById(R.id.input2)
-        output1= findViewById(R.id.output1)
+        //output1= findViewById(R.id.output1)
         input3 = findViewById(R.id.input3)
         az_button= findViewById(R.id.azI)
         NEl_button= findViewById(R.id.NEl2)
         InEl_button=findViewById(R.id.IEl2)
-        pro_bar= findViewById(R.id.probar12)
+        //pro_bar= findViewById(R.id.probar12)
         button = findViewById(R.id.getLocation)
+
+
+
+
 
         // get reference to the string array that we just created
         val languages = resources.getStringArray(R.array.programming_languages)
@@ -91,63 +110,46 @@ class MainActivity : AppCompatActivity(), LocationListener {
             val dc= "West"
             if (autocompleteTV.text.toString().contains(dc)){
                 //f_angle= -+angle
-                input3.setText("-$angle")
+                input3.setText(getString(R.string.angle, angle))
                 //println("-"+ang)
             }else{
                 input3.setText(angle)
             }
-
-
             Toast.makeText(
-                applicationContext,
-                "" + autocompleteTV.text.toString(),
-                Toast.LENGTH_SHORT
-            ).show()
+                applicationContext, "" + autocompleteTV.text.toString(), Toast.LENGTH_SHORT).show()
         }
-        //Find Current Location
-        //val button: Button = findViewById(R.id.getLocation)
-
-
-
-
 
 
         button.setOnClickListener {
             //pro_bar.visibility = View.VISIBLE
-            //input1.text.clear()
-            //input2.text.clear()
+            //button.text ="Loading...."
+            //getLocation()
+            input1.text=null
+            input2.text.clear()
+            if (input1.text.isEmpty() && input2.text.isEmpty()) {
+                "Loading......".also { button.text = it }
+                getLocation()
+            }
 
-            if (input1.text == null && input2.text.isNotEmpty()) {
-                button.text="Get Loc-if"
+            /*
+            if (input1.text.isNotEmpty() && input2.text.isNotEmpty()) {
+                //tvGpsLocation.text= null
+                //tvGpsLocation1.text=null
+
+                "Loading..".also { button.text = it }
                 getLocation()
 
 
             }else{
-                button.text="Loading........"
-                //getLocation()
                 getLocation()
+                "Loading........".also { button.text = it }
+                //button.text="Get Loc-else"
             }
 
-            //if (input1.text.isNullOrEmpty() && input2.text.isNullOrBlank()){
-                //button.text="Loading......"
-                //getLocation()
-                //getLocation()
-            //}else{
-                //input1.text.clear()
-                //input2.text.clear()
+             */
 
-                //button.text="Loading!!!!"
-                //getLocation()
-            //}
-            //input1.text.clear()
-            //isProgressVisible= false
-            //}
 
-            //isProgressVisible=true
-            //getLocation()
-            //if(isProgressVisible){
-                //button.text="Loading"
-            //}
+
 
         }
 
@@ -157,17 +159,15 @@ class MainActivity : AppCompatActivity(), LocationListener {
         }
 
         val btnclear = findViewById<Button>(R.id.btnclear)
-        btnclear.setOnClickListener() {
+        btnclear.setOnClickListener{
             autocompleteTV.text.clear()
-            input1.text=null
+            //txView.text.clear
+            input1.text=null//clear()
             input2.text.clear()
             input3.text.clear()
-            output1.text.clear()
             az_button.text=""
             NEl_button.text=""
             InEl_button.text=""
-            button.text="Get Loc-c"
-
 
         }
     }
@@ -175,7 +175,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
     // To Calculate the Pointing Angle
     private fun calculatePointing(){
 
-        val output1 = findViewById<TextView>(R.id.output1)
+        //val output1 = findViewById<TextView>(R.id.output1)
         try {
             //println(autocompleteTV.text.toString())
             val Az: String = PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).Azimuth
@@ -186,17 +186,22 @@ class MainActivity : AppCompatActivity(), LocationListener {
             NEl_button.text= El.toString()
             InEl_button.text = El1.toString()
 
-            output1.text = "Azimuth :\t${Az}\n" +
-                            "Normal Elevation:\t${El}\n" +
-                            "Inverted Elevation:\t${El1}"
+            //output1.text = "Azimuth :\t${Az}\n" +
+                            //"Normal Elevation:\t${El}\n" +
+                            //"Inverted Elevation:\t${El1}"
 
 
         } catch (e: Exception) {
             Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_LONG).show()
-            output1.text = ""
+            //output1.text = ""
         }
     }
 
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //To get current Location
     private fun getLocation() {
@@ -204,32 +209,28 @@ class MainActivity : AppCompatActivity(), LocationListener {
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
         }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 1f, this)
+
     }
-
     override fun onLocationChanged(location: Location) {
-        //tvGpsLocation = findViewById(R.id.input1)
-        //tvGpsLocation1= findViewById(R.id.input2)
+        tvGpsLocation = findViewById(R.id.input1)
+        tvGpsLocation1= findViewById(R.id.input2)
         //input1.setText(tvGpsLocation.text)
+        //var tvGpsL: String? =null
 
-        input1.setText(location.longitude.toString())
-        input2.setText(location.latitude.toString())
-        button.text="Get Location"
+        //tvGpsL= location.longitude.toString()
+        tvGpsLocation.text= location.longitude.toString() //setText(location.longitude.toString())
+        tvGpsLocation1.text= location.latitude.toString()
 
-
-        //tvGpsLocation.text= location.longitude.toString()
-        //tvGpsLocation1.text = location.latitude.toString()
-
-        //if (input1.text.isNotEmpty()){
-            //button.text="Get Location"
-            //input1.text.clear()
-            //isProgressVisible= false
-        //}
-
-
+        //input1.setText(location.longitude.toString())
+        //input2.setText(location.latitude.toString())
+        "Get Location".also { button.text = it }
 
         //tvGpsLocation.text = "Latitude: " + location.latitude + " , Longitude: " + location.longitude
     }
+
+
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == locationPermissionCode) {
@@ -242,6 +243,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
         }
     }
 
+
     override fun onBackPressed() {
 
         if (backPressedTime + 3000 > System.currentTimeMillis()) {
@@ -252,15 +254,24 @@ class MainActivity : AppCompatActivity(), LocationListener {
         }
         backPressedTime = System.currentTimeMillis()
     }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeLong(backPressedTime)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<MainActivity> {
+        override fun createFromParcel(parcel: Parcel): MainActivity {
+            return MainActivity(parcel)
+        }
+
+        override fun newArray(size: Int): Array<MainActivity?> {
+            return arrayOfNulls(size)
+        }
+    }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
