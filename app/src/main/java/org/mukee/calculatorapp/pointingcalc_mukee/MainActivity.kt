@@ -4,39 +4,30 @@ package org.mukee.calculatorapp.pointingcalc_mukee
 import android.Manifest
 
 import android.content.Context
-import android.content.Intent
+
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
-import android.os.Looper
+import android.os.Handler
 import android.os.Parcel
 import android.os.Parcelable
-import android.text.method.TextKeyListener.clear
-import android.view.View
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.viewmodel.CreationExtras
+
+
 
 
 class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
-
-    //LocationListener
-    //private var currentLocation: Location? = null
-    //private lateinit var locationManager: LocationManager
-    //locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
 
     private var tvGlat: String?=null
     private var tvGlog: String?=null
@@ -49,9 +40,9 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
     private lateinit var output1: EditText
     private val locationPermissionCode = 2
     private var backPressedTime: Long = 0
-    private lateinit var az_button:TextView//findViewById<TextView>(R.id.azI)
-    private lateinit var NEl_button: TextView//findViewById<TextView>(R.id.NEl2)
-    private lateinit var InEl_button: TextView//findViewById<TextView>(R.id.IEl2)
+    private lateinit var az_button:TextView
+    private lateinit var NEl_button: TextView
+    private lateinit var InEl_button: TextView
 
 
     private lateinit var button: Button
@@ -60,17 +51,6 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
     constructor(parcel: Parcel) : this() {
         backPressedTime = parcel.readLong()
     }
-    //private var isProgressVisible = true
-
-    //private lateinit var input1: EditText
-    //private lateinit var input2: EditText
-    //private lateinit var output1: EditText
-
-
-
-
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,21 +102,23 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
                 applicationContext, "" + autocompleteTV.text.toString(), Toast.LENGTH_SHORT).show()
         }
 
-
         button.setOnClickListener {
-
             //getLocation()
-            if (tvGlog==null || tvGlat==null) {
+            if (tvGlog.isNullOrEmpty() && tvGlat.isNullOrEmpty()) {
                 "Loading......".also { button.text = it }
                 getLocation()
 
             }else{
                 input1.text.clear()
                 input2.text.clear()
-                "Loading...".also { button.text = it }
-                getLocation()
+                "Loading....".also { button.text = it }
+                Handler().postDelayed({
+                    // yourMethod()
+                    input1.setText(tvGlog)
+                    input2.setText(tvGlat)
+                    "Get Location4".also { button.text = it }
+                }, 2000)
             }
-
         }
 
         val btncalculate = findViewById<Button>(R.id.btncalculate)
@@ -147,21 +129,17 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
         val btnclear = findViewById<Button>(R.id.btnclear)
         btnclear.setOnClickListener{
             autocompleteTV.text.clear()
-            //txView.text.clear
             input1.text.clear()
             input2.text.clear()
             input3.text.clear()
             az_button.text=""
             NEl_button.text=""
             InEl_button.text=""
-
         }
     }
 
     // To Calculate the Pointing Angle
     private fun calculatePointing(){
-
-        //val output1 = findViewById<TextView>(R.id.output1)
         try {
             //println(autocompleteTV.text.toString())
             val Az: String = PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).Azimuth
@@ -172,19 +150,11 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
             NEl_button.text= El.toString()
             InEl_button.text = El1.toString()
 
-
-
         } catch (e: Exception) {
             Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_LONG).show()
             //output1.text = ""
         }
     }
-
-
-
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //To get current Location
     private fun getLocation() {
@@ -196,17 +166,13 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
 
     }
     override fun onLocationChanged(location: Location) {
-        //tvGpsLocation = findViewById(R.id.input1)
-        //tvGpsLocation1= findViewById(R.id.input2)
-        //tvGpsLocation.text= location.longitude.toString() //setText(location.longitude.toString())
-        //tvGpsLocation1.text= location.latitude.toString()
-
         tvGlog = location.longitude.toString()
         tvGlat= location.latitude.toString()
 
-        if (input1.text.isNotEmpty() && input2.text.isNotEmpty()){
+        if (input1.text.isEmpty() && input2.text.isEmpty()){
             input1.setText(location.longitude.toString())
             input2.setText(location.latitude.toString())
+
             "Get Location1".also { button.text = it }
         }else{
             input1.setText(tvGlog)
@@ -215,8 +181,6 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
         }
         //tvGpsLocation.text = "Latitude: " + location.latitude + " , Longitude: " + location.longitude
     }
-
-
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -241,7 +205,6 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
         }
         backPressedTime = System.currentTimeMillis()
     }
-
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeLong(backPressedTime)
     }
@@ -254,11 +217,9 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
         override fun createFromParcel(parcel: Parcel): MainActivity {
             return MainActivity(parcel)
         }
-
         override fun newArray(size: Int): Array<MainActivity?> {
             return arrayOfNulls(size)
         }
     }
-
 
 }
