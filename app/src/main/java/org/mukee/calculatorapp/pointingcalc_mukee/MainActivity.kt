@@ -116,7 +116,7 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
                     // yourMethod()
                     input1.setText(tvGlog)
                     input2.setText(tvGlat)
-                    "Get Location4".also { button.text = it }
+                    "Get Location2".also { button.text = it }
                 }, 2000)
             }
         }
@@ -177,7 +177,7 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
         }else{
             input1.setText(tvGlog)
             input2.setText(tvGlat)
-            "Get Location2".also { button.text = it }
+            "Get Location3".also { button.text = it }
         }
         //tvGpsLocation.text = "Latitude: " + location.latitude + " , Longitude: " + location.longitude
     }
