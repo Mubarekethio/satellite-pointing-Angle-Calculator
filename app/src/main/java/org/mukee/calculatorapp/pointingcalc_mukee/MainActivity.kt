@@ -31,18 +31,22 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
 
     private var tvGlat: String?=null
     private var tvGlog: String?=null
+    private var laMin: String?=null
+    private var loMin: String?=null
     private lateinit var locationManager: LocationManager
-    private lateinit var tvGpsLocation: TextView
-    private lateinit var tvGpsLocation1: TextView
     private lateinit var input1: EditText
     private lateinit var input2: EditText
     private lateinit var input3: EditText
-    private lateinit var output1: EditText
     private val locationPermissionCode = 2
     private var backPressedTime: Long = 0
     private lateinit var az_button:TextView
     private lateinit var NEl_button: TextView
     private lateinit var InEl_button: TextView
+    private lateinit var latM:TextView
+    private lateinit var longM: TextView
+
+
+    //"latMin"
 
 
     private lateinit var button: Button
@@ -68,6 +72,11 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
         InEl_button=findViewById(R.id.IEl2)
         //pro_bar= findViewById(R.id.probar12)
         button = findViewById(R.id.getLocation)
+        latM =findViewById(R.id.latMin)
+        longM =findViewById(R.id.longMin)
+
+
+
 
 
 
@@ -111,12 +120,18 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
             }else{
                 input1.text.clear()
                 input2.text.clear()
+                latM.text=""
+                longM.text=""
                 "Loading....".also { button.text = it }
                 Handler().postDelayed({
                     // yourMethod()
-                    input1.setText(tvGlog)
-                    input2.setText(tvGlat)
-                    "Get Location2".also { button.text = it }
+                    input1.setText(buildString { append(tvGlog) })
+                    input2.setText(buildString { append(tvGlat) })
+
+                    latM.text= laMin
+                    longM.text= loMin
+
+                    "Get Location".also { button.text = it }
                 }, 2000)
             }
         }
@@ -132,6 +147,8 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
             input1.text.clear()
             input2.text.clear()
             input3.text.clear()
+            longM.text=""
+            latM.text=""
             az_button.text=""
             NEl_button.text=""
             InEl_button.text=""
@@ -147,8 +164,8 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
             val El1: String = PointingClass(input1.text.toString().toDouble(),input2.text.toString().toDouble(),input3.text.toString().toDouble()).inverted_El
 
             az_button.text= Az
-            NEl_button.text= El.toString()
-            InEl_button.text = El1.toString()
+            NEl_button.text= El
+            InEl_button.text = El1
 
         } catch (e: Exception) {
             Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_LONG).show()
@@ -169,16 +186,59 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
         tvGlog = location.longitude.toString()
         tvGlat= location.latitude.toString()
 
-        if (input1.text.isEmpty() && input2.text.isEmpty()){
-            input1.setText(location.longitude.toString())
-            input2.setText(location.latitude.toString())
 
-            "Get Location1".also { button.text = it }
-        }else{
-            input1.setText(tvGlog)
-            input2.setText(tvGlat)
-            "Get Location3".also { button.text = it }
-        }
+
+        val fst1= tvGlog!!.indexOf(".")
+        val long02= tvGlog!!.subSequence(0,fst1).toString()+'°'
+        val sr12=(((tvGlog!!.subSequence(fst1, tvGlog!!.length)).toString().toDouble())*60).toString()
+        val fst2= sr12.indexOf(".")
+        val long03= (sr12.subSequence(0,fst2)).toString()+"'"
+        val sr52=((sr12.subSequence(fst2, sr12.length)).toString().toDouble())*60
+        val long72= String.format("%.1f", sr52)+"''"
+        //println(sr02+sr03+lt72)
+        loMin= long02+ long03 +long72
+
+
+        val fst= tvGlat!!.indexOf(".")
+        val lat0= (tvGlat!!.subSequence(0,fst)).toString()+'°'
+        val sr1=(((tvGlat!!.subSequence(fst, tvGlat!!.length)).toString().toDouble())*60).toString()
+        val fst3= sr12.indexOf(".")
+        val lat10=(sr1.subSequence(0,fst3)).toString()+"'"
+        // println(sr10)
+        val sr5=((sr1.subSequence(fst3, sr1.length)).toString().toDouble())*60
+        val lat7= String.format("%.1f", sr5)+"''"
+        //println(lt7)
+        //println(sr0+sr10+lt7)
+        laMin= lat0+lat10+lat7
+
+
+
+        if (input1.text.isEmpty() && input2.text.isEmpty()){
+
+            input1.setText(buildString {
+        append(location.longitude.toString())
+    })
+            longM.text = buildString {
+                append(long02)
+                append(long03)
+                append(long72)
+            }
+            //input1.setText(location.longitude.toString() +"("+ sr02 + sr03 + lt72+")")
+            input2.setText(buildString {
+        append(location.latitude.toString())
+    })
+
+            latM.text = buildString {
+                append(lat0)
+                append(lat10)
+                append(lat7)
+            }
+            "Get Location".also { button.text = it }
+        }//else{
+            //input1.setText(tvGlog)
+            //input2.setText(tvGlat)
+            //"Get Location2".also { button.text = it }
+        //}
         //tvGpsLocation.text = "Latitude: " + location.latitude + " , Longitude: " + location.longitude
     }
 
