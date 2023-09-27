@@ -2,9 +2,9 @@
     <string name="app_name">pointingCalc-Mukee</string>
     <string name="select_satellite">Select Satellite</string>
     <string name="selected_item">Selected item:</string>
-    <string name="site_longtude_e">Site Longtude! (E)</string>
+    <string name="site_longitude_e">Site Longitude! (E)</string>
     <string name="site_latitude_n">Site Latitude! (N)</string>
-    <string name="sat_longtude_e_nuse_for_w">Sat Longtude (E) use - for (W)</string>
+    <string name="sat_longtude_e_nuse_for_w">Sat Longitude (E) use - for (W)</string>
     <string name="calculate">Calculate</string>
     <string name="c">C</string>
     <string name="angle">-%1$s</string>

@@ -196,20 +196,34 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
         val sr52=((sr12.subSequence(fst2, sr12.length)).toString().toDouble())*60
         val long72= String.format("%.1f", sr52)+"''"
         //println(sr02+sr03+lt72)
-        loMin= long02+ long03 +long72
+        loMin= buildString {
+        append(long02)
+        append(" ")
+        append(long03)
+        append(" ")
+        append(long72)
+        append(" ")
+    }
 
 
         val fst= tvGlat!!.indexOf(".")
         val lat0= (tvGlat!!.subSequence(0,fst)).toString()+'°'
         val sr1=(((tvGlat!!.subSequence(fst, tvGlat!!.length)).toString().toDouble())*60).toString()
-        val fst3= sr12.indexOf(".")
+        val fst3= sr1.indexOf(".")
         val lat10=(sr1.subSequence(0,fst3)).toString()+"'"
         // println(sr10)
         val sr5=((sr1.subSequence(fst3, sr1.length)).toString().toDouble())*60
         val lat7= String.format("%.1f", sr5)+"''"
         //println(lt7)
         //println(sr0+sr10+lt7)
-        laMin= lat0+lat10+lat7
+        laMin= buildString {
+        append(lat0)
+        append(" ")
+        append(lat10)
+        append(" ")
+        append(lat7)
+        append(" ")
+    }
 
 
 
@@ -218,21 +232,13 @@ class MainActivity() :AppCompatActivity(),LocationListener, Parcelable {
             input1.setText(buildString {
         append(location.longitude.toString())
     })
-            longM.text = buildString {
-                append(long02)
-                append(long03)
-                append(long72)
-            }
+            longM.text = loMin
             //input1.setText(location.longitude.toString() +"("+ sr02 + sr03 + lt72+")")
             input2.setText(buildString {
         append(location.latitude.toString())
     })
+            latM.text = laMin
 
-            latM.text = buildString {
-                append(lat0)
-                append(lat10)
-                append(lat7)
-            }
             "Get Location".also { button.text = it }
         }//else{
             //input1.setText(tvGlog)
