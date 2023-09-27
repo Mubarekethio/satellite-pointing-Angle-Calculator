@@ -1,4 +1,4 @@
-# pointing_calculator
+# Azimuth and Inverted Elevation calculator to point the satellite (pointing calculator)
 
 
 pointing calculator used to calculate the pointing angle of satellite by using local location
