@@ -1,22 +1,74 @@
-# pointing_calculator
+# PointingCalcMukee
 
+PointingCalcMukee is an Android application designed to assist engineers and satellite enthusiasts in calculating **satellite antenna pointing parameters** for geostationary satellites. The application integrates **geolocation**, **trigonometric modeling**, and **antenna physics** to provide accurate azimuth, elevation, inclinometer readings, and obstacle clearance distances.  
 
-pointing calculator used to calculate the pointing angle of satellite by using local location
+This tool is particularly useful for optical communication, VSAT, and satellite link alignment in the field.
 
-by cloning or downloading the zip file you can see the app code in android studio by importing the project 
+---
 
-the apk file of this project is available in the folder and zipped file from the 'pointingCalc-mukee' folder
-The application is calculate the azimuth and elevations angle of the satellite by using the site latitude and longitude and satellite longtude
-# Azimuth and Elevations calculator
-Azimuth angle means the angle between North, measured clockwise around the observer's horizon, and a celestial body (sun, moon). It can measured using a compass 
+## Overview
 
-Elevation angle is the vertical angle formed between the direction of travel of electromagnetic wave radiated from an earth station antenna pointing directly towards a satellite and horizontal plane.
+Aligning a satellite antenna requires precise calculation of **azimuth** (horizontal angle), **elevation** (vertical angle), and consideration of **dish offsets** and **obstacles** along the line of sight. PointingCalcMukee automates this process by:
 
-Inverted elevation is an elevation angle when the dish is inverted in upward direction.
+- Fetching the user’s **current geographic coordinates** using GPS.
+- Calculating satellite pointing parameters based on site coordinates and selected satellite position.
+- Accounting for **antenna offset angles** and **inclinometer readings**.
+- Estimating **obstacle clearance distances**, ensuring safe line-of-sight alignment.
 
-This app is developed by considering a Circular polarized antennas it may be left-hand (LHCP) or right-hand (RHCP). so the polarization angle is considered not important.
+---
 
-Finally, if your satellite are in the west direction you can use the minus sign ex. if the satellite is at 18°W you can use '-18°' or 360-18=342.
+## Features
 
+### 1. Satellite Pointing Calculation
+- **Azimuth** – Computes the horizontal angle of the antenna relative to true north.
+- **Elevation** – Computes the vertical angle of the antenna above the horizon.
+- **Inclinometer readings** – Calculates tilt angles for different dish configurations:
+  - Center feed
+  - Normal dish
+  - Inverted dish
+- **Obstacle clearance** – Provides distances for 0°, 5°, and 10° safety margins to avoid physical obstructions.
 
-Tip: Typical satellite antenna offsets are 22.3º and 17.3° (i.e., Calculated Elevation – Offset = Measured Elevation angle). in this project the 22.3 is used as an offset of the antenna if your antenna have different offset angle from 22.3 you must add the difference of the offset antenna on the elevation 
+### 2. GPS Integration
+- Automatically fetches **longitude and latitude** from the device.
+- Supports fallback to manual input if GPS is unavailable.
+- Uses **FusedLocationProviderClient** for high accuracy.
+
+### 3. User Interface
+- **Satellite dropdown** – Predefined list of geostationary satellites with their orbital positions.
+- **Floating action buttons** – Intuitive buttons for calculating, clearing, and fetching location.
+- Real-time feedback via **TextViews** for calculation results.
+
+---
+
+## Methodology
+
+PointingCalcMukee uses **geometric and trigonometric principles** to determine satellite pointing:
+
+1. **Azimuth Calculation**:  
+   The horizontal angle between true north and the satellite is computed differently depending on the **hemisphere**. The formula considers:
+   - Difference between satellite longitude and site longitude.
+   - Latitude of the site.
+   - Conversion from radians to degrees.
+
+2. **Elevation Calculation**:  
+   The elevation angle is computed based on:
+   - Site coordinates
+   - Satellite longitude
+   - Earth curvature approximation
+   - Offset correction (dish angle offsets)
+
+3. **Inclinometer and Offset Adjustments**:  
+   - Computes tilt angles for center feed, normal, and inverted dish configurations.
+   - Ensures alignment consistency with inclinometer readings in field installations.
+
+4. **Obstacle Clearance**:  
+   - Uses basic trigonometry to estimate clearance distances based on:
+     - Antenna elevation
+     - Obstacle height
+     - Safety margins (0°, 5°, 10°)
+
+---
+
+## Installation
+
+1. Clone the repository:
