@@ -69,6 +69,66 @@ PointingCalcMukee uses **geometric and trigonometric principles** to determine s
 
 ---
 
-## Installation
 
-1. Clone the repository:
+ ## Installation
+
+### Option 1: Install APK
+1. Download the APK from [here](https://github.com/Mubarekethio/satellite-pointing-Angle-Calculator/releases/download/V1.12/sat-pointing-calculator.apk).  
+2. Open the APK file on your Android device to install the app.
+
+### Option 2: Build from Source
+  1. Clone the repository:
+    ```bash
+    git clone https://github.com/Mubarekethio/satellite-pointing-Angle-Calculator.git
+  2. Open the project in Android Studio.
+  3. Build and run the app on a physical device or emulator (API level 21+ recommended).
+
+## Permissions
+
+**The app requires:**:  
+   - ACCESS_FINE_LOCATION – Precise GPS coordinates for site location.
+   - ACCESS_COARSE_LOCATION – Approximate location.
+   - INTERNET – Optional for future enhancements.
+   - Background location access is not required as the app only fetches location on demand.
+     
+## Usage:
+1. Open the app on your device.
+2. Enter your site longitude and latitude, or click the GPS button to auto-fill.
+3. Select a satellite from the dropdown menu.
+4. Optionally enter:
+  - Offset angle (default: 22.3°)
+  - Obstacle height (default: 0 m)
+
+5. Click calculate to obtain:
+  - Azimuth and elevation
+  - Inclinometer readings
+  - Obstacle clearance distances\
+    
+6. Click clear to reset inputs.
+
+## Technical Architecture
+
+   - PointingClass.kt – Core calculation logic for azimuth, elevation, inclinometer, and obstacle clearance.
+   - MainActivity.kt – Handles user interface, input validation, GPS integration, and triggers calculation.
+   - activity_main.xml – Layout defining input fields, buttons, dropdowns, and result views.
+   - AndroidManifest.xml – Declares required permissions and main activity.
+
+## Future Enhancements
+
+  - Integration with real-time satellite ephemeris data for dynamic orbital positions.
+  - Support for non-geostationary satellites and mobile tracking.
+  - Graphical azimuth/elevation visualization for easier field alignment.
+  - Optional cloud syncing to log and track multiple site installations.
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for full details.
+
+---
+
+## Author
+
+**Mu Kee** – [GitHub Profile](https://github.com/Mubarekethio)
+
+
+
