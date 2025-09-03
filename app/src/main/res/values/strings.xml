@@ -1,14 +1,22 @@
 <resources>
-    <string name="app_name">pointingCalc-Mukee</string>
+    <string name="app_name">Satpointing-Mukee</string>
     <string name="select_satellite">Select Satellite</string>
     <string name="selected_item">Selected item:</string>
-    <string name="site_longtude_e">Site Longtude! (E)</string>
-    <string name="site_latitude_n">Site Latitude! (N)</string>
-    <string name="sat_longtude_e_nuse_for_w">Sat Longtude (E) use - for (W)</string>
+    <string name="site_longtude_e">Site Longitude! </string>
+    <string name="site_latitude_n">Site Latitude! </string>
+    <string name="sat_longtude_e_nuse_for_w">SatLong (E) use - for (W)</string>
     <string name="calculate">Calculate</string>
+    <string name="offset">Offset Angle Defualt 22.3</string>
     <string name="c">C</string>
     <string name="angle">-%1$s</string>
-    <string-array name="programming_languages">
+    <string name="button_to_get_current_location">Button to get current location</string>
+    <string name="get_location">Get Location</string>
+    <string name="button_to_calculate_pointing_angles">Button to calculate pointing angles</string>
+    <string name="satellite_obstruction_clearance_calculator">Satellite obstruction clearance calculator</string>
+    <string-array name="satellite_positions">
+        <item>Intelsat 39 (62.0°East)</item>
+        <item>Intelsat 37e (18.0°West)</item>
+        <item>Azerspace-2 (45.0°East)</item>
         <item>G-Sat 9 (97.3°East)</item>
         <item>Hellas Sat ¾ (39.0°East)</item>
         <item>Hispasat 30W-5 / 30W-6 (30.0°West)</item>
@@ -22,10 +30,64 @@
         <item>Intelsat 28 (32.9°East)</item>
         <item>Intelsat 33e (60.0°East)</item>
         <item>Intelsat 35e (34.5°West)</item>
-        <item>Intelsat 37e (18.0°West)</item>
-        <item>Intelsat 39 (62.0°East)</item>
         <item>Intelsat 901 (27.5°West)</item>
         <item>KazSat 2 (86.5°East)</item>
+        <item>Eutelsat 7B (7.0°East)</item>
+        <item>Eutelsat 9B (9.0°East)</item>
+        <item>Eutelsat 16A (16.0°East)</item>
+        <item>Eutelsat 36B (36.0°East)</item>
+        <item>Eutelsat 70B (70.5°East)</item>
+        <item>Eutelsat 113 West A (113.0°West)</item>
+        <item>Eutelsat 117 West A (117.0°West)</item>
+        <item>Eutelsat 172B (172.0°East)</item>
+        <item>SES 4 (22.0°West)</item>
+        <item>SES 5 (5.0°East)</item>
+        <item>SES 6 (40.5°West)</item>
+        <item>SES 7 (108.2°East)</item>
+        <item>SES 8 (95.0°East)</item>
+        <item>SES 9 (108.2°East)</item>
+        <item>SES 12 (95.0°East)</item>
+        <item>SES 14 (47.5°West)</item>
+        <item>SES 15 (129.0°West)</item>
+        <item>SES 16 (22.0°West)</item>
+        <item>Yamal 401 (90.0°East)</item>
+        <item>Yamal 402 (55.0°East)</item>
+        <item>Yamal 601 (49.0°East)</item>
+        <item>Express AM6 (53.0°East)</item>
+        <item>Express AM8 (14.0°West)</item>
+        <item>Express AM22 (80.0°East)</item>
+        <item>Express AM33 (96.5°East)</item>
+        <item>Express AM44 (11.0°West)</item>
+        <item>Express AM7 (40.0°East)</item>
+        <item>Express AM5 (140.0°East)</item>
+        <item>AsiaSat 5 (100.5°East)</item>
+        <item>AsiaSat 6 (120.0°East)</item>
+        <item>AsiaSat 7 (105.5°East)</item>
+        <item>AsiaSat 8 (105.5°East)</item>
+        <item>AsiaSat 9 (122.2°East)</item>
+        <item>Thaicom 4 (IPSTAR) (119.5°East)</item>
+        <item>Thaicom 5 (78.5°East)</item>
+        <item>Thaicom 6 (78.5°East)</item>
+        <item>Thaicom 7 (78.5°East)</item>
+        <item>Thaicom 8 (78.5°East)</item>
+        <item>ABS 2 (75.0°East)</item>
+        <item>ABS 3A (3.0°West)</item>
+        <item>ABS 4A (75.0°East)</item>
+        <item>ABS 6 (159.0°East)</item>
+        <item>ABS 7 (116.0°East)</item>
+        <item>ABS 8 (75.0°East)</item>
+        <item>ABS 9 (75.0°East)</item>
+        <item>ABS 10 (75.0°East)</item>
+        <item>ABS 11 (75.0°East)</item>
+        <item>ABS 12 (75.0°East)</item>
+        <item>ABS 13 (75.0°East)</item>
+        <item>ABS 14 (75.0°East)</item>
+        <item>ABS 15 (75.0°East)</item>
+        <item>ABS 16 (75.0°East)</item>
+        <item>ABS 17 (75.0°East)</item>
+        <item>ABS 18 (75.0°East)</item>
+        <item>ABS 19 (75.0°East)</item>
+        <item>ABS 20 (75.0°East)</item>
 
     </string-array>
 </resources>

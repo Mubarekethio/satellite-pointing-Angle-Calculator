@@ -8,8 +8,6 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-
-
     </style>
 
     <style name="Cut" parent="ShapeAppearance.MaterialComponents.MediumComponent">
@@ -20,6 +18,11 @@
     <style name="Rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="RoundedTextInputLayout" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item> <!-- Adjust the radius as needed -->
     </style>
 
 </resources>

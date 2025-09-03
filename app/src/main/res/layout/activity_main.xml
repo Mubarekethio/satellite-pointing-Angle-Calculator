@@ -1,273 +1,234 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="143dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/filledTextField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="179dp"
-            android:layout_height="62dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="8dp"
-            android:hint="@string/site_longtude_e"
-            android:inputType="numberDecimal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.947"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.058"
-            app:shapeAppearance="@style/Rounded">
-
-            <!--this is the actual edit text which takes the input-->
-            <com.google.android.material.textfield.TextInputEditText
-
-                android:id="@+id/input1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/filledTextField2"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="17dp"
-            android:layout_height="62dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="5dp"
-            android:layout_toEndOf="@+id/filledTextField"
-            android:hint="@string/site_latitude_n"
-            android:inputType="numberDecimal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.034"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.058"
-            app:shapeAppearance="@style/Rounded">
-
-            <!--this is the actual edit text which takes the input-->
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input2"
-                android:layout_width="match_parent"
-                android:layout_height="56dp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/filledTextField3"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="370dp"
-            android:layout_height="61dp"
-            android:layout_below="@+id/filledTextField"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginBottom="8dp"
-            android:hint="@string/sat_longtude_e_nuse_for_w"
-            android:inputType="numberSigned"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filledTextField2"
-            app:layout_constraintVertical_bias="0.143"
-            app:shapeAppearance="@style/Rounded">
-
-            <!--this is the actual edit text which takes the input-->
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input3"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                app:shapeAppearance="@style/Rounded" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </RelativeLayout>
-
+    <!-- Location Input Fields -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
+        android:id="@+id/siteLongitudeLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:hint="@string/site_longtude_e"
+        android:inputType="numberDecimal"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+        app:layout_constraintEnd_toStartOf="@+id/siteLatitudeLayout"
+        app:layout_constraintHorizontal_chainStyle="spread">
 
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/siteLongitude"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="none"
-            android:text="@string/select_satellite"
-            tools:layout_editor_absoluteX="23dp"
-            tools:layout_editor_absoluteY="403dp" />
-
-        <!-- Inside text input layout add
-              an auto complete text view
-                and make its input type to none-->
-
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/siteLatitudeLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/site_latitude_n"
+        android:inputType="numberDecimal"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/siteLongitudeLayout"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- Imageview to show the converted svg file -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/siteLatitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Satellite Longitude Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/satelliteLongitudeLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/sat_longtude_e_nuse_for_w"
+        android:inputType="numberSigned"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/siteLongitudeLayout"
+        app:layout_constraintEnd_toStartOf="@+id/offsetAngleLayout">
 
-    <RelativeLayout
-        android:id="@+id/rel1"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeIm"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        tools:ignore="MissingConstraints"
-        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/satelliteLongitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/getLocation"
-            android:layout_width="151dp"
+    <!-- Antenna Offset Angle Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/offsetAngleLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/offset"
+        android:inputType="numberDecimal"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/siteLatitudeLayout"
+        app:layout_constraintStart_toEndOf="@+id/satelliteLongitudeLayout"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/offsetAngle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Dropdown Menu -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/satelliteDropdownLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/select_satellite"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/satelliteLongitudeLayout">
+
+        <AutoCompleteTextView
+            android:id="@+id/satelliteDropdown"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="17dp"
-            android:background="@color/purple_500"
-            android:text="Get Location!"
-            android:textColor="@color/white"
-            app:shapeAppearance="@style/Rounded" />
+            android:contentDescription="@string/select_satellite"
+            android:importantForAccessibility="yes"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btncalculate"
-            android:layout_width="141dp"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="8dp"
-            android:layout_toEndOf="@+id/getLocation"
-            android:background="#8A2BE3"
-            android:text="@string/calculate"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.894"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.393"
-            app:shapeAppearance="@style/Rounded" />
-
-        <Button
-            android:id="@+id/btnclear"
-            android:layout_width="59dp"
-            android:layout_height="63dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="0dp"
-            android:layout_toEndOf="@+id/btncalculate"
-            android:elevation="@dimen/cardview_default_radius"
-            android:text="C" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeIm"
-        android:layout_width="match_parent"
-        android:layout_height="204dp"
-        android:layout_marginBottom="144dp"
+    <!-- Button Row replaced with Floating Action Buttons -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/getLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/button_to_get_current_location"
+        android:src="@drawable/ic_location"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/obstract"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rel1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        app:tint="@color/white"
+        tools:ignore="NotSibling" />
 
-        <ImageView
-            android:id="@+id/image_view"
-            android:layout_width="126dp"
-            android:layout_height="121dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/azimuth4"
-            tools:ignore="MissingConstraints" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/button_to_calculate_pointing_angles"
+        android:src="@drawable/ic_calculate"
+        app:backgroundTint="#8A2BE3"
+        app:layout_constraintStart_toEndOf="@+id/getLocation"
+        app:layout_constraintTop_toBottomOf="@+id/obstract"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clearButton"
+        app:tint="@color/white" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Button to clear inputs"
+        android:src="@drawable/ic_clear"
+        app:backgroundTint="@color/purple_500"
+        app:layout_constraintStart_toEndOf="@+id/calculateButton"
+        app:layout_constraintTop_toBottomOf="@+id/obstract"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
 
-        <TextView
-            android:id="@+id/azI"
-            android:layout_width="110dp"
-            android:layout_height="46dp"
-            android:layout_below="@+id/image_view"
+        app:tint="@color/white" />
 
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="20dp"
-            android:layout_toStartOf="@+id/NEl2" />
-
-
-        <ImageView
-            android:id="@+id/image_view2"
-            android:layout_width="126dp"
-            android:layout_height="121dp"
-
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/image_view"
-            android:src="@drawable/normalele4"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/NEl2"
-            android:layout_width="124dp"
-            android:layout_height="43dp"
-
-            android:layout_below="@+id/image_view2"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="17dp"
-            android:layout_toStartOf="@+id/IEl2"
-            app:layout_constraintStart_toEndOf="@+id/azI" />
-
-        <ImageView
-            android:id="@+id/image_view3"
-            android:layout_width="121dp"
-            android:layout_height="121dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="2dp"
-            android:layout_toEndOf="@+id/image_view2"
-            android:src="@drawable/inelev44"
-            tools:ignore="MissingConstraints" />
+    <!-- Result Section -->
+    <LinearLayout
+        android:id="@+id/resultSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/satelliteDropdownLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/IEl2"
-            android:layout_width="104dp"
-            android:layout_height="44dp"
-            android:layout_below="@+id/image_view3"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="bottom"
+            android:id="@+id/azimuthView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <!-- Obstacle Section -->
+    <LinearLayout
+        android:id="@+id/obstract"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/resultSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Obstract_clearance"
+            android:text="@string/satellite_obstruction_clearance_calculator"
+            android:textStyle="bold"
+            />
+
+        <!-- Height Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/heightInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Obstacle Height (m)"
+            android:inputType="numberDecimal"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Obstacle Result -->
+        <TextView
+            android:id="@+id/obstacleResult1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintStart_toEndOf="@+id/NEl2" />
-
-
-    </RelativeLayout>
-
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Obstacle Clearance: N/A"
+            tools:text="Obstacle Clearance:" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
