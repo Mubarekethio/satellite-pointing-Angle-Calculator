@@ -77,7 +77,7 @@ PointingCalcMukee uses **geometric and trigonometric principles** to determine s
 2. Open the APK file on your Android device to install the app.
 
 ### Option 2: Build from Source
-  1. Clone the repository:
+  1. **Clone the repository:**
     ```bash
     git clone https://github.com/Mubarekethio/satellite-pointing-Angle-Calculator.git
   2. Open the project in Android Studio.
@@ -95,14 +95,14 @@ PointingCalcMukee uses **geometric and trigonometric principles** to determine s
 1. Open the app on your device.
 2. Enter your site longitude and latitude, or click the GPS button to auto-fill.
 3. Select a satellite from the dropdown menu.
-4. Optionally enter:
+4. **Optionally enter:**
   - Offset angle (default: 22.3°)
   - Obstacle height (default: 0 m)
 
-5. Click calculate to obtain:
+5. **Click calculate to obtain:**
   - Azimuth and elevation
   - Inclinometer readings
-  - Obstacle clearance distances\
+  - Obstacle clearance distances
     
 6. Click clear to reset inputs.
 
