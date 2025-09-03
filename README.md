@@ -108,7 +108,6 @@ PointingCalcMukee uses **geometric and trigonometric principles**:
 
 ---
 
-## 📐 Diagram
 ## 📐 Azimuth & Elevation Diagram
 
 ![Azimuth and Elevation](data:image/svg+xml;utf8,
@@ -132,25 +131,6 @@ PointingCalcMukee uses **geometric and trigonometric principles**:
 </svg>
 )
 
-
-
-   Elevation ↑
-             \
-              \
-               \ Dish Tilt
-                \
-                 *
-                 |\
-                 | \
-                 |  \
-   Horizon ----> |   \ Satellite
-               Azimuth
-
-
-
-- **Elevation** – Vertical angle above horizon  
-- **Azimuth** – Horizontal pointing relative to true north  
-- **Inverted dish** – Tilt in opposite direction  
 
 ---
 
