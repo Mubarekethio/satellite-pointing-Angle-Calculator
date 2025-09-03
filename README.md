@@ -109,6 +109,28 @@ PointingCalcMukee uses **geometric and trigonometric principles**:
 ---
 
 ## 📐 Diagram
+## 📐 Azimuth & Elevation Diagram
+
+![Azimuth and Elevation](data:image/svg+xml;utf8,
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <!-- Horizon -->
+  <line x1="20" y1="180" x2="280" y2="180" stroke="#555" stroke-width="2"/>
+  <text x="10" y="185" font-family="Arial" font-size="12">Horizon</text>
+
+  <!-- Satellite direction -->
+  <line x1="150" y1="180" x2="250" y2="50" stroke="#1f77b4" stroke-width="3"/>
+  <circle cx="250" cy="50" r="5" fill="#1f77b4"/>
+  <text x="255" y="50" font-family="Arial" font-size="12">Satellite</text>
+
+  <!-- Azimuth arc -->
+  <path d="M150,180 A50,50 0 0,1 220,180" fill="none" stroke="#ff7f0e" stroke-width="2"/>
+  <text x="180" y="170" font-family="Arial" font-size="12" fill="#ff7f0e">Azimuth</text>
+
+  <!-- Elevation arc -->
+  <path d="M150,180 A70,70 0 0,0 220,80" fill="none" stroke="#2ca02c" stroke-width="2"/>
+  <text x="160" y="120" font-family="Arial" font-size="12" fill="#2ca02c">Elevation</text>
+</svg>
+)
 
 
 
