@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
 [![Release](https://img.shields.io/github/v/release/Mubarekethio/satellite-pointing-Angle-Calculator)](https://github.com/Mubarekethio/satellite-pointing-Angle-Calculator/releases)  
 
-**PointingCalcMukee** is an Android application designed to assist engineers and satellite enthusiasts in calculating **satellite antenna pointing parameters** for geostationary satellites. It integrates **geolocation**, **trigonometric modeling**, and **antenna physics** to provide accurate **azimuth**, **elevation**, **inclinometer readings**, and **obstacle clearance distances**. This tool is particularly useful for **optical communication, VSAT, and satellite link alignment** in the field.  
+**PointingCalcMukee** is an Android application designed to assist engineers and satellite enthusiasts in calculating **satellite antenna pointing parameters** for geostationary satellites. It integrates **geolocation**, **trigonometric modeling**, and **antenna physics** to provide accurate **azimuth**, **elevation**, **inclinometer readings**, and **obstacle clearance distances**. This tool is particularly useful for ** VSAT, and satellite link alignment** in the field.  
 
 ---
 
